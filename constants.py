@@ -1,6 +1,6 @@
 blockWidth = 0.3
 blockHeight = 0.3
-blockLength = 0.5
+blockLength = 2
 arm1Height = 1
 radius = 0.1
 arm2Height = 0.6
