@@ -1,9 +1,10 @@
 blockWidth = 0.3
 blockHeight = 0.3
-blockLength = 2
+blockLength = 8
 arm1Height = 1
 radius = 0.1
 arm2Height = 0.6
 handHeight = 0.1
 handLength = 0.3
 ballRadius = 0.07
+eval = 500
