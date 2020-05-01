@@ -11,13 +11,12 @@ from ThrowingRobot import ROBOT
 class INDIVIDUAL:
     def __init__(self, i):
         self.ID = i
-        self.genome = numpy.random.randint(100, size=(9, 6))
+        self.genome = numpy.random.randint(100, size=(9, 5))
         self.genome = (self.genome * 0.02) - 1
-        print(self.genome)
         self.fitness = 0
 
-    def start_sim(self):
-        self.sim = pyrosim.Simulator(play_blind=False, eval_steps=c.eval, play_paused=True)
+    def start_sim(self,pb):
+        self.sim = pyrosim.Simulator(play_blind=pb, eval_steps=c.eval)
         self.robot = ROBOT(self.sim, self.genome)
         self.sim.start()
 
@@ -34,12 +33,12 @@ class INDIVIDUAL:
             if dis_in_i < distance:
                 distance = dis_in_i
 
-        print(distance)
         self.fitness = distance
+        del self.sim
 
     def mutate(self):
         gene_to_mutate_row = random.randint(0, 8)
-        gene_to_mutate_column = random.randint(0, 5)
+        gene_to_mutate_column = random.randint(0, 4)
         self.genome[gene_to_mutate_row][gene_to_mutate_column] = random.gauss(
             self.genome[gene_to_mutate_row][gene_to_mutate_column],
             math.fabs(self.genome[gene_to_mutate_row][gene_to_mutate_column]))

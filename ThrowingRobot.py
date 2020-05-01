@@ -37,28 +37,28 @@ class ROBOT:
 
         #####the other object.
         self.O7 = sim.send_sphere(
-            position=(0.6, 20, 0.7),
+            position=(4, 20, 0.7),
             radius=0.7, color=(0.5, 0.5, 0.5), collision_group="thro")
-        sim.add_impulse_to_body(self.O7, force=(-2, 0, 0))
+        sim.add_impulse_to_body(self.O7, force=(-1, 0, 0))
         sim.assign_collision('bot', 'pop')
+
 
     def send_joints(self, sim):
         self.jointList = {}
 
         ##the ball and socket joint from the first object to the arm
 
-        self.jointList[0] = sim.send_hinge_joint(self.O0, self.O1, anchor=(0, 0, c.blockHeight), axis=(0, 1, 0))
+        self.jointList[0] = sim.send_hinge_joint(self.O0, self.O1, anchor=(0, 0, c.blockHeight), axis=(1, 1, 0))
         self.jointList[1] = sim.send_hinge_joint(self.O1, self.O2, anchor=(0, 0, c.blockHeight + c.arm1Height),
-                                                 axis=(1, 0, 0))
+                                                 axis=(0, 1, 0))
         self.jointList[2] = sim.send_hinge_joint(self.O2, self.O3,
                                                  anchor=(0, 0, c.blockHeight + c.arm1Height + c.arm2Height),
                                                  axis=(1, 0, 0))
         self.jointList[3] = sim.send_hinge_joint(self.O3, self.O5, anchor=(
-        c.handLength / 3, -c.handLength / 2, c.blockHeight + c.arm1Height + c.arm2Height + c.handHeight), axis=(1, 0, 0))
+        c.handLength / 3, -c.handLength / 2, c.blockHeight + c.arm1Height + c.arm2Height + c.handHeight), axis=(1, 0, 0), joint_range=(-0.08, 0.08))
         self.jointList[4] = sim.send_hinge_joint(self.O3, self.O6, anchor=(
         -c.handLength / 3, -c.handLength / 2, c.blockHeight + c.arm1Height + c.arm2Height + c.handHeight),
-                                                 axis=(1, 0, 0))
-        self.jointList[5] = sim.send_hinge_joint(self.O0, self.O1, anchor=(0, 0, c.blockHeight), axis=(1, 0, 0))
+                                                 axis=(1, 0, 0), joint_range=(-0.08, 0.08))
 
     def send_sensors(self, sim):
         self.sensorList = {}
@@ -80,6 +80,8 @@ class ROBOT:
         self.sensorList[6] = sim.send_ray_sensor(ray7, which_sense='d')
         self.sensorList[7] = sim.send_ray_sensor(ray8, which_sense='d')
         self.sensorList[8] = sim.send_ray_sensor(ray9, which_sense='d')
+
+
 
         self.P1x=sim.send_position_x_sensor(self.O4)
         self.P1y=sim.send_position_y_sensor(self.O4)

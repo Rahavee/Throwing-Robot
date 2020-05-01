@@ -7,4 +7,4 @@ arm2Height = 0.6
 handHeight = 0.1
 handLength = 0.3
 ballRadius = 0.07
-eval = 500
+eval = 1000
