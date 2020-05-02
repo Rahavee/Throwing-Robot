@@ -7,19 +7,20 @@ import copy
 import constants as c
 from ThrowingRobot import ROBOT
 
-parents = POPULATION(20)
-parents.Evaluate(True)
-
-
-for j in range(0,1000):
-    print(j, end="")
-    parents.Print()
-    children = copy.deepcopy(parents)
-    children.Mutate()
-    children.Evaluate(True)
-    parents.ReplaceWith(children)
-
+parents = POPULATION(1)
 parents.Evaluate(False)
-f= open('best.p','wb')
-pickle.dump(parents,f)
-f.close()
+
+
+# for j in range(0,1):
+#     print(j, end="")
+#     parents.Print()
+#     children = copy.deepcopy(parents)
+#     children.Mutate()
+#     children.Evaluate(True)
+#     parents.ReplaceWith(children)
+#     parents.fitness_graph()
+#
+# parents.Evaluate(False)
+
+
+

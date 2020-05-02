@@ -32,6 +32,8 @@ class POPULATION:
         for i in self.p:
             if self.p[i].fitness>other.p[i].fitness:
                 self.p[i]=other.p[i]
+            else:
+                self.p[i]=self.p[i]
 
     def fitness_graph(self):
         self.graph = []
