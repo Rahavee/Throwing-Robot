@@ -1,1 +1,3 @@
 # Throwing-Robot
+
+Catapult was a final project for my Evolutionary Robotics class. I created and evolved a throwing robot in PyRoSim that would throw a square block onto a moving target. The structural design of the robot was inspired by a human arm where the robot joints were arranged to move in all possible directions, in case evolution finds a better possible solution to the throwing problem that is not conventional. The fitness function used for evolving the robot penalised unwanted behaviours such as rolling the block on the ground and rewarded behaviours that minimised the distance between the block and target.
